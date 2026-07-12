@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lewis Watt Videography — Wedding Cinematography</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,400;1,9..144,500&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivory:#FBF5EF;
+    --ivory-deep:#F4EAE1;
+    --blush:#E3B4A8;
+    --blush-soft:#F0D9D0;
+    --wine:#3F262B;
+    --wine-soft:#6B4A50;
+    --sage:#A9B49B;
+    --gold:#C6A15E;
+    --line:#E3D3C4;
+    --max:1180px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ivory);
+    color:var(--wine);
+    font-family:'Work Sans', sans-serif;
+    font-weight:400;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 6vw;}
+  h1,h2,h3{font-family:'Fraunces', serif;font-weight:500;line-height:1.05;}
+  .eyebrow{
+    font-family:'Work Sans', sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.22em;
+    font-size:0.72rem;
+    color:var(--wine-soft);
+    font-weight:500;
+  }
+
+  /* focus visibility */
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
+    outline:2px solid var(--gold);
+    outline-offset:3px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important; scroll-behavior:auto !important;}
+  }
+
+  /* ---------- HEADER ---------- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    background:rgba(251,245,239,0.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid transparent;
+    transition:border-color .4s ease, box-shadow .4s ease;
+  }
+  header.scrolled{
+    border-bottom-color:var(--line);
+    box-shadow:0 8px 24px -18px rgba(63,38,43,0.35);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:20px 6vw;max-width:var(--max);margin:0 auto;
+  }
+  .logo{font-family:'Fraunces',serif;font-style:italic;font-size:1.35rem;letter-spacing:0.01em;}
+  .logo span{color:var(--gold);font-style:normal;}
+  .nav-links{display:flex;gap:2.4rem;font-size:0.85rem;letter-spacing:0.03em;}
+  .nav-links a{position:relative;padding-bottom:4px;}
+  .nav-links a::after{
+    content:'';position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--wine);
+    transition:width .3s ease;
+  }
+  .nav-links a:hover::after{width:100%;}
+  .nav-cta{
+    border:1px solid var(--wine);border-radius:100px;
+    padding:8px 20px;font-size:0.82rem;
+    transition:background .3s ease, color .3s ease;
+  }
+  .nav-cta:hover{background:var(--wine);color:var(--ivory);}
+  .menu-btn{display:none;background:none;border:none;font-size:1.4rem;cursor:pointer;color:var(--wine);}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    min-height:100svh;
+    display:flex;flex-direction:column;justify-content:center;align-items:center;
+    padding:140px 6vw 80px;
+    text-align:center;
+    background:
+      radial-gradient(ellipse at 20% 15%, rgba(227,180,168,0.55), transparent 55%),
+      radial-gradient(ellipse at 82% 78%, rgba(169,180,155,0.35), transparent 50%),
+      var(--ivory);
+  }
+  .film-frame{
+    position:relative;
+    width:min(880px, 90vw);
+    aspect-ratio:2.35/1;
+    border-radius:6px;
+    background:linear-gradient(135deg, #EFDCD1 0%, #E9CFC2 40%, #D8B7AE 100%);
+    overflow:hidden;
+    box-shadow:0 40px 80px -30px rgba(63,38,43,0.4);
+    margin-bottom:2.6rem;
+    opacity:0;
+    transform:translateY(24px);
+    animation:riseIn 1.1s cubic-bezier(.16,1,.3,1) 0.15s forwards;
+  }
+  .film-frame::before, .film-frame::after{
+    content:'';position:absolute;left:0;right:0;height:9%;background:var(--wine);
+  }
+  .film-frame::before{top:0;}
+  .film-frame::after{bottom:0;}
+  .film-frame .sprockets{
+    position:absolute;top:0;bottom:0;left:0;right:0;
+    display:flex;justify-content:space-between;
+    padding:14px 3%;
+    opacity:0.9;
+  }
+  .film-frame .sprockets span{width:14px;height:14px;border-radius:3px;background:var(--ivory);align-self:flex-start;}
+  .film-frame .sprockets span:nth-child(even){align-self:flex-end;}
+  .film-frame .play{
+    position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    width:74px;height:74px;border-radius:50%;
+    background:rgba(251,245,239,0.92);
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 12px 30px -10px rgba(63,38,43,0.5);
+  }
+  .film-frame .play svg{width:24px;height:24px;fill:var(--wine);margin-left:4px;}
+
+  @keyframes riseIn{to{opacity:1;transform:translateY(0);}}
+
+  .hero h1{
+    font-size:clamp(2.3rem, 5vw, 4rem);
+    max-width:16ch;
+    font-weight:400;
+    opacity:0;
+    animation:riseIn 1.1s cubic-bezier(.16,1,.3,1) 0.35s forwards;
+  }
+  .hero h1 em{font-style:italic;color:var(--wine-soft);}
+  .hero p.sub{
+    margin-top:1.3rem;max-width:46ch;font-size:1.05rem;color:var(--wine-soft);
+    opacity:0;
+    animation:riseIn 1.1s cubic-bezier(.16,1,.3,1) 0.5s forwards;
+  }
+  .hero .btn-row{
+    margin-top:2.4rem;display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;
+    opacity:0;
+    animation:riseIn 1.1s cubic-bezier(.16,1,.3,1) 0.65s forwards;
+  }
+  .btn-primary{
+    background:var(--wine);color:var(--ivory);
+    padding:14px 30px;border-radius:100px;font-size:0.92rem;letter-spacing:0.02em;
+    transition:transform .3s ease, box-shadow .3s ease;
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 26px -12px rgba(63,38,43,0.5);}
+  .btn-ghost{
+    border:1px solid var(--wine-soft);padding:14px 30px;border-radius:100px;font-size:0.92rem;
+    transition:background .3s ease;
+  }
+  .btn-ghost:hover{background:rgba(63,38,43,0.06);}
+
+  /* ---------- CREDENTIALS STRIP ---------- */
+  .credentials{
+    padding:3.2rem 6vw;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  }
+  .credentials .wrap{
+    display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:2rem;
+  }
+  .credentials p{max-width:38ch;font-size:0.95rem;color:var(--wine-soft);}
+  .broadcast-list{
+    display:flex;gap:2.4rem;flex-wrap:wrap;
+    font-family:'Fraunces',serif;font-style:italic;font-size:1.15rem;color:var(--wine);
+    opacity:0.75;
+  }
+
+  /* ---------- SECTION SCAFFOLDING ---------- */
+  section{padding:7rem 6vw;}
+  .section-head{max-width:640px;margin-bottom:3.6rem;}
+  .section-head h2{font-size:clamp(1.9rem,3.4vw,2.7rem);margin-top:0.6rem;}
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1);}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  /* ---------- SERVICES ---------- */
+  .services-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.6rem;
+  }
+  .service-card{
+    background:var(--ivory-deep);border-radius:14px;padding:2.2rem 1.8rem;
+    border:1px solid var(--line);
+    transition:transform .35s ease, box-shadow .35s ease;
+  }
+  .service-card:hover{transform:translateY(-6px);box-shadow:0 24px 40px -26px rgba(63,38,43,0.4);}
+  .service-card .num{font-family:'Fraunces',serif;font-style:italic;color:var(--gold);font-size:1.1rem;}
+  .service-card h3{font-size:1.25rem;margin:0.7rem 0 0.6rem;}
+  .service-card p{font-size:0.92rem;color:var(--wine-soft);line-height:1.55;}
+
+  /* ---------- SHOT LIST (signature) ---------- */
+  .shotlist{background:var(--wine);color:var(--ivory);border-radius:22px;margin:0 6vw;padding:4.5rem 5vw;}
+  .shotlist .section-head h2{color:var(--ivory);}
+  .shotlist .eyebrow{color:var(--blush);}
+  .shotlist .section-head p{color:rgba(251,245,239,0.72);margin-top:0.8rem;}
+  .card{
+    background:rgba(251,245,239,0.06);
+    border:1px solid rgba(251,245,239,0.16);
+    border-radius:14px;
+    overflow:hidden;
+  }
+  .slot{
+    display:grid;grid-template-columns:90px 1px 1fr auto;gap:1.6rem;align-items:center;
+    padding:1.5rem 1.8rem;border-bottom:1px solid rgba(251,245,239,0.12);
+  }
+  .slot:last-child{border-bottom:none;}
+  .slot .time{font-family:'Fraunces',serif;font-style:italic;font-size:1.1rem;color:var(--blush);}
+  .slot .divider{width:1px;height:100%;background:rgba(251,245,239,0.18);}
+  .slot .desc h4{font-family:'Fraunces',serif;font-weight:500;font-size:1.15rem;margin-bottom:0.25rem;}
+  .slot .desc p{font-size:0.88rem;color:rgba(251,245,239,0.65);}
+  .slot .tag{
+    font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;
+    border:1px solid rgba(251,245,239,0.3);border-radius:100px;padding:6px 14px;white-space:nowrap;
+  }
+  @media(max-width:640px){
+    .slot{grid-template-columns:70px 1px 1fr;}
+    .slot .tag{display:none;}
+  }
+
+  /* ---------- PORTFOLIO ---------- */
+  .portfolio-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.4rem;
+  }
+  .film-tile{
+    position:relative;aspect-ratio:4/5;border-radius:14px;overflow:hidden;
+    display:flex;align-items:flex-end;padding:1.4rem;
+    color:var(--ivory);
+  }
+  .film-tile::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(180deg, transparent 45%, rgba(63,38,43,0.75) 100%);
+  }
+  .film-tile .content{position:relative;z-index:2;}
+  .film-tile .content .eyebrow{color:var(--blush-soft);}
+  .film-tile .content h3{font-size:1.35rem;margin-top:0.3rem;}
+  .film-tile .play-mini{
+    position:absolute;z-index:2;top:1.3rem;right:1.3rem;
+    width:38px;height:38px;border-radius:50%;
+    background:rgba(251,245,239,0.85);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .film-tile .play-mini svg{width:13px;height:13px;fill:var(--wine);margin-left:2px;}
+  .film-tile:hover img{transform:scale(1.06);}
+  .film-tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease;}
+  .t1{background:linear-gradient(135deg,#E7C9BC,#CFA79B);}
+  .t2{background:linear-gradient(135deg,#D9CDBF,#B7B9A0);}
+  .t3{background:linear-gradient(135deg,#E9D6C8,#D3B79E);}
+  .t4{background:linear-gradient(135deg,#DEC2BE,#AE8C88);}
+
+  /* ---------- TESTIMONIALS ---------- */
+  .testimonial-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.8rem;}
+  .testimonial{padding:2rem 0;border-top:1px solid var(--line);}
+  .testimonial p.quote{font-family:'Fraunces',serif;font-style:italic;font-size:1.2rem;line-height:1.5;margin-bottom:1.2rem;}
+  .testimonial .who{font-size:0.85rem;color:var(--wine-soft);}
+
+  /* ---------- CONTACT ---------- */
+  .contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
+  @media(max-width:860px){.contact-wrap{grid-template-columns:1fr;}}
+  .field{margin-bottom:1.3rem;}
+  .field label{display:block;font-size:0.78rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--wine-soft);margin-bottom:0.5rem;}
+  .field input, .field textarea{
+    width:100%;border:none;border-bottom:1px solid var(--line);
+    background:transparent;padding:0.7rem 0.1rem;font-family:'Work Sans',sans-serif;font-size:1rem;color:var(--wine);
+    transition:border-color .3s ease;
+  }
+  .field input:focus, .field textarea:focus{border-color:var(--wine);}
+  .field textarea{resize:vertical;min-height:90px;}
+  .submit-btn{
+    margin-top:0.6rem;background:var(--wine);color:var(--ivory);border:none;
+    padding:14px 32px;border-radius:100px;font-size:0.92rem;cursor:pointer;
+    transition:transform .3s ease;font-family:'Work Sans',sans-serif;
+  }
+  .submit-btn:hover{transform:translateY(-2px);}
+  .confirm{margin-top:1rem;font-size:0.9rem;color:var(--sage);display:none;}
+
+  footer{border-top:1px solid var(--line);padding:3rem 6vw;}
+  .footer-wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+  .footer-wrap p{font-size:0.8rem;color:var(--wine-soft);}
+
+  @media(max-width:760px){
+    .nav-links{
+      position:fixed;top:64px;left:0;right:0;bottom:0;
+      background:var(--ivory);flex-direction:column;padding:2.5rem 6vw;gap:1.6rem;
+      font-size:1.1rem;
+      transform:translateX(100%);transition:transform .4s ease;
+    }
+    .nav-links.open{transform:translateX(0);}
+    .menu-btn{display:block;}
+    .nav-cta{display:none;}
+    .credentials .wrap{flex-direction:column;align-items:flex-start;}
+  }
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <nav class="nav">
+    <a href="#" class="logo">Lewis Watt <span>Videography</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="#work">Films</a>
+      <a href="#about">About</a>
+      <a href="#services">Weddings</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="#contact" class="nav-cta">Enquire</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">☰</button>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="film-frame" id="heroVideo" data-yt="XgGROP-9EI0">
+    <img src="images/hero-drone.jpeg" alt="Aerial view of a wedding reception at a barn venue, with the couple in the foreground" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+  </div>
+  <h1>Wedding films, shot with a <em>broadcast eye</em></h1>
+  <p class="sub">Ten years behind the camera for national television, now turned toward the one day you'll want to relive for the rest of your life.</p>
+  <div class="btn-row">
+    <a href="#work" class="btn-primary">Watch the films</a>
+    <a href="#contact" class="btn-ghost">Check my date</a>
+  </div>
+</section>
+
+<div class="credentials">
+  <div class="wrap">
+    <p class="reveal">Formerly on crews for BBC, Channel 4, ITV, Netflix, and Discovery — the same craft, pointed at something more personal.</p>
+    <div class="broadcast-list reveal">
+      <span>BBC</span><span>Channel 4</span><span>ITV</span><span>Netflix</span><span>Discovery</span>
+    </div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="section-head reveal">
+    <span class="eyebrow">About</span>
+    <h2>A decade of television, one wedding at a time</h2>
+  </div>
+  <div style="max-width:700px;" class="reveal">
+    <p style="font-size:1.05rem;line-height:1.75;color:var(--wine-soft);">
+      I spent the last ten years as a camera operator, drone pilot, and director on broadcast crews — the kind of work where every frame is planned, every light considered, and there's no second take. I bring that same discipline to weddings: steady hands during the vows, a drone pass over the marquee at golden hour, and an edit paced like something made for television, not a home video. You'll get the ceremony as it happened, and a film you'd be proud to see broadcast.
+    </p>
+  </div>
+</section>
+
+<section id="services">
+  <div class="section-head reveal">
+    <span class="eyebrow">Packages</span>
+    <h2>Coverage built around your day</h2>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <span class="num">01</span>
+      <h3>The Highlight Film</h3>
+      <p>A 4–6 minute cinematic edit capturing the whole day's emotion, set to music, ready to share the week after.</p>
+    </div>
+    <div class="service-card reveal">
+      <span class="num">02</span>
+      <h3>Full Day Documentary</h3>
+      <p>Getting ready through last dance, cut as a feature-length film with full speeches and vows included.</p>
+    </div>
+    <div class="service-card reveal">
+      <span class="num">03</span>
+      <h3>Aerial & Venue</h3>
+      <p>Drone coverage of the venue, grounds, and guest arrival — the establishing shots a broadcast crew would never skip.</p>
+    </div>
+    <div class="service-card reveal">
+      <span class="num">04</span>
+      <h3>Elopement & Intimate</h3>
+      <p>A lighter package for small ceremonies and elopements, one camera operator, all-day availability.</p>
+    </div>
+  </div>
+</section>
+
+<section class="shotlist">
+  <div class="section-head reveal">
+    <span class="eyebrow">How the day runs</span>
+    <h2>The shot list</h2>
+    <p>Every wedding gets a proper call sheet — planned like a television shoot day, so nothing important is missed.</p>
+  </div>
+  <div class="card">
+    <div class="slot reveal">
+      <span class="time">08:00</span><span class="divider"></span>
+      <div class="desc"><h4>Getting ready</h4><p>Detail shots, both sides, natural light prioritised.</p></div>
+      <span class="tag">Two cameras</span>
+    </div>
+    <div class="slot reveal">
+      <span class="time">13:00</span><span class="divider"></span>
+      <div class="desc"><h4>Ceremony</h4><p>Fixed wide plus a roaming lens for reactions; radio mic on the groom.</p></div>
+      <span class="tag">Sound + gimbal</span>
+    </div>
+    <div class="slot reveal">
+      <span class="time">16:30</span><span class="divider"></span>
+      <div class="desc"><h4>Speeches & drinks reception</h4><p>Full audio capture, candid coverage of guests.</p></div>
+      <span class="tag">Audio priority</span>
+    </div>
+    <div class="slot reveal">
+      <span class="time">18:30</span><span class="divider"></span>
+      <div class="desc"><h4>Golden hour</h4><p>Couple portraits and a drone pass over the venue while the light lasts.</p></div>
+      <span class="tag">Drone</span>
+    </div>
+    <div class="slot reveal">
+      <span class="time">20:00</span><span class="divider"></span>
+      <div class="desc"><h4>First dance & party</h4><p>Low-light coverage through the first dance, then candid dancefloor.</p></div>
+      <span class="tag">Low light kit</span>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="section-head reveal">
+    <span class="eyebrow">Recent films</span>
+    <h2>A few days worth remembering</h2>
+  </div>
+  <div class="portfolio-grid">
+    <div class="film-tile t1 reveal video-tile" id="videoTile1" data-yt="XgGROP-9EI0">
+      <img src="https://img.youtube.com/vi/XgGROP-9EI0/maxresdefault.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+      <span class="play-mini"><svg viewBox="0 0 24 24"><path d="M5 3l16 9-16 9V3z"/></svg></span>
+      <div class="content"><span class="eyebrow">Somerset, Spring</span><h3>Emily &amp; James</h3></div>
+    </div>
+    <div class="film-tile t2 reveal">
+      <span class="play-mini"><svg viewBox="0 0 24 24"><path d="M5 3l16 9-16 9V3z"/></svg></span>
+      <div class="content"><span class="eyebrow">Devon, Coastal</span><h3>Isla &amp; Tom</h3></div>
+    </div>
+    <div class="film-tile t3 reveal">
+      <span class="play-mini"><svg viewBox="0 0 24 24"><path d="M5 3l16 9-16 9V3z"/></svg></span>
+      <div class="content"><span class="eyebrow">Cotswolds, Autumn</span><h3>Priya &amp; Sam</h3></div>
+    </div>
+    <div class="film-tile t4 reveal">
+      <span class="play-mini"><svg viewBox="0 0 24 24"><path d="M5 3l16 9-16 9V3z"/></svg></span>
+      <div class="content"><span class="eyebrow">Bristol, City</span><h3>Alex &amp; Charlie</h3></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-head reveal">
+    <span class="eyebrow">Kind words</span>
+    <h2>From couples I've filmed</h2>
+  </div>
+  <div class="testimonial-grid">
+    <div class="testimonial reveal">
+      <p class="quote">"It felt like having a television crew there, but somehow completely invisible. We forgot he was filming."</p>
+      <p class="who">Emily, married in Somerset</p>
+    </div>
+    <div class="testimonial reveal">
+      <p class="quote">"The drone shot of the marquee at sunset still makes my mum cry. Worth every penny."</p>
+      <p class="who">Isla, married in Devon</p>
+    </div>
+    <div class="testimonial reveal">
+      <p class="quote">"Paced like a proper film, not a wedding video. We've watched it more times than we'll admit."</p>
+      <p class="who">Priya, married in the Cotswolds</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact-wrap">
+    <div class="reveal">
+      <span class="eyebrow">Get in touch</span>
+      <h2 style="font-size:clamp(1.9rem,3.4vw,2.7rem);margin-top:0.6rem;">Check your date</h2>
+      <p style="margin-top:1rem;color:var(--wine-soft);max-width:40ch;line-height:1.6;">
+        Tell me your date and venue and I'll get back to you within a couple of days with availability and pricing.
+      </p>
+    </div>
+    <form class="reveal" id="enquiryForm">
+      <div class="field">
+        <label for="name">Your names</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="field">
+        <label for="date">Wedding date</label>
+        <input type="text" id="date" name="date" placeholder="e.g. 12 September 2027" required>
+      </div>
+      <div class="field">
+        <label for="venue">Venue</label>
+        <input type="text" id="venue" name="venue">
+      </div>
+      <div class="field">
+        <label for="message">A little about your day</label>
+        <textarea id="message" name="message"></textarea>
+      </div>
+      <button type="submit" class="submit-btn">Send enquiry</button>
+      <p class="confirm" id="confirmMsg">Opening your email app now — just hit send to reach me.</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-wrap">
+    <a href="#" class="logo" style="font-size:1.1rem;">Lewis Watt <span>Videography</span></a>
+    <p>&copy; 2026 Lewis Watt Videography. Based in Somerset, filming across the UK.</p>
+    <a href="https://www.instagram.com/lewiswattvideography" target="_blank" rel="noopener noreferrer" style="font-size:0.85rem;letter-spacing:0.03em;border-bottom:1px solid var(--wine-soft);padding-bottom:2px;">Instagram</a>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  const menuBtn = document.getElementById('menuBtn');
+  const navLinks = document.getElementById('navLinks');
+  menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => io.observe(el));
+
+  const videoTile = document.getElementById('videoTile1');
+  if (videoTile) {
+    videoTile.style.cursor = 'pointer';
+    videoTile.addEventListener('click', () => {
+      const id = videoTile.getAttribute('data-yt');
+      videoTile.innerHTML = `<iframe style="position:absolute;inset:0;width:100%;height:100%;border:0;" src="https://www.youtube-nocookie.com/embed/${id}" title="Wedding film" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+    });
+  }
+
+  const form = document.getElementById('enquiryForm');
+  const confirmMsg = document.getElementById('confirmMsg');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    const date = document.getElementById('date').value;
+    const venue = document.getElementById('venue').value;
+    const message = document.getElementById('message').value;
+
+    const subject = `Wedding enquiry — ${name}`;
+    const body =
+`Names: ${name}
+Wedding date: ${date}
+Venue: ${venue}
+
+${message}`;
+
+    const mailtoLink = `mailto:lewiswatt@me.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoLink;
+
+    confirmMsg.style.display = 'block';
+    form.reset();
+  });
+</script>
+
+</body>
+</html>
