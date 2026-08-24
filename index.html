@@ -109,22 +109,6 @@
     animation:riseIn 1.1s cubic-bezier(.16,1,.3,1) 0.15s forwards;
     box-shadow:0 40px 70px -30px rgba(63,38,43,0.45), 0 8px 24px -12px rgba(63,38,43,0.25);
   }
-  .film-frame img{
-    animation:slowZoom 16s ease-in-out infinite alternate;
-  }
-  .film-frame::after{
-    content:'';
-    position:absolute;inset:0;
-    background:
-      linear-gradient(180deg, rgba(63,38,43,0.12) 0%, transparent 30%, transparent 70%, rgba(63,38,43,0.22) 100%),
-      radial-gradient(ellipse at center, transparent 55%, rgba(63,38,43,0.28) 100%);
-    mix-blend-mode:multiply;
-    pointer-events:none;
-  }
-  @keyframes slowZoom{
-    from{transform:scale(1);}
-    to{transform:scale(1.08);}
-  }
   .film-frame .sprockets{
     position:absolute;top:0;bottom:0;left:0;right:0;
     display:flex;justify-content:space-between;
