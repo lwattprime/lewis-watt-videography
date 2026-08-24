@@ -83,6 +83,8 @@
     transition:background .3s ease, color .3s ease;
   }
   .nav-cta:hover{background:var(--wine);color:var(--ivory);}
+  .nav-ig{display:flex;align-items:center;color:var(--wine);transition:opacity .3s ease;}
+  .nav-ig:hover{opacity:0.6;}
   .menu-btn{display:none;background:none;border:none;font-size:1.4rem;cursor:pointer;color:var(--wine);}
 
   /* ---------- HERO ---------- */
@@ -310,6 +312,9 @@
       <a href="#services">Weddings</a>
       <a href="#contact">Contact</a>
     </div>
+    <a href="https://www.instagram.com/lewiswattvideography" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="nav-ig">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg>
+    </a>
     <a href="#contact" class="nav-cta">Enquire</a>
     <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">☰</button>
   </nav>
@@ -469,6 +474,7 @@
     <a href="https://www.instagram.com/lewiswattvideography" target="_blank" rel="noopener noreferrer" style="font-size:0.85rem;letter-spacing:0.03em;border-bottom:1px solid var(--wine-soft);padding-bottom:2px;">Instagram</a>
   </div>
 </footer>
+
 
 <script>
   const header = document.getElementById('siteHeader');
