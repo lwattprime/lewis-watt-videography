@@ -101,11 +101,29 @@
     position:relative;
     width:min(880px, 90vw);
     aspect-ratio:2.35/1;
+    border-radius:18px;
     overflow:hidden;
     margin-bottom:1.4rem;
     opacity:0;
     transform:translateY(24px);
     animation:riseIn 1.1s cubic-bezier(.16,1,.3,1) 0.15s forwards;
+    box-shadow:0 40px 70px -30px rgba(63,38,43,0.45), 0 8px 24px -12px rgba(63,38,43,0.25);
+  }
+  .film-frame img{
+    animation:slowZoom 16s ease-in-out infinite alternate;
+  }
+  .film-frame::after{
+    content:'';
+    position:absolute;inset:0;
+    background:
+      linear-gradient(180deg, rgba(63,38,43,0.12) 0%, transparent 30%, transparent 70%, rgba(63,38,43,0.22) 100%),
+      radial-gradient(ellipse at center, transparent 55%, rgba(63,38,43,0.28) 100%);
+    mix-blend-mode:multiply;
+    pointer-events:none;
+  }
+  @keyframes slowZoom{
+    from{transform:scale(1);}
+    to{transform:scale(1.08);}
   }
   .film-frame .sprockets{
     position:absolute;top:0;bottom:0;left:0;right:0;
@@ -343,6 +361,7 @@
     <p style="font-size:1.05rem;line-height:1.75;color:var(--wine-soft);">
       I spent the last ten years as a camera operator, drone pilot, and director on broadcast crews — the kind of work where every frame is planned, every light considered, and there's no second take. I bring that same discipline to weddings: steady hands during the vows, a drone pass over the marquee at golden hour, and an edit paced like something made for television, not a home video. You'll get the ceremony as it happened, and a film you'd be proud to see broadcast.
     </p>
+    <a href="https://youtu.be/39FtNLflaIY" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-top:1.4rem;font-family:'Fraunces',serif;font-style:italic;font-size:1rem;border-bottom:1px solid var(--wine-soft);padding-bottom:2px;">Watch some of my broadcast work →</a>
   </div>
 </section>
 
